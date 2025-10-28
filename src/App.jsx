@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 import RequestForm from './components/RequestForm'
 import FAQPage from './components/FAQPage'
 import './styles/globals.css'
@@ -182,6 +183,7 @@ function App() {
           <Route path="/faq" element={<FAQPage />} />
         </Routes>
         <Footer />
+        <Analytics />
       </div>
     </Router>
   )
