@@ -2,9 +2,5 @@
   "version": 2,
   "framework": "vite",
   "buildCommand": "npm run vercel-build",
-  "outputDirectory": "dist",
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/(.*)", "dest": "/index.html" }
-  ]
+  "outputDirectory": "dist"
 }
