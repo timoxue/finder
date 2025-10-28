@@ -1,23 +1,32 @@
 import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import RequestForm from './components/RequestForm'
+import FAQPage from './components/FAQPage'
 import './styles/globals.css'
 
-function App() {
+// Navigation Component
+const Navigation = () => {
   return (
-    <div className="app">
-      {/* Navigation */}
-      <nav className="navbar">
-        <div className="nav-container">
-          <div className="nav-brand">
+    <nav className="navbar">
+      <div className="nav-container">
+        <div className="nav-brand">
+          <a href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
             <h2>SupplyFinder.AI</h2>
-          </div>
-          <div className="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-          </div>
+          </a>
         </div>
-      </nav>
+        <div className="nav-links">
+          <a href="/">Home</a>
+          <a href="/faq">FAQ</a>
+        </div>
+      </div>
+    </nav>
+  )
+}
 
+// Home Page Component
+const HomePage = () => {
+  return (
+    <>
       {/* Hero Section */}
       <section id="home" className="hero">
         <div className="hero-container">
@@ -92,27 +101,47 @@ function App() {
           <RequestForm />
         </div>
       </section>
+    </>
+  )
+}
 
-      {/* Footer */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-brand">
-              <h3>SupplyFinder.AI</h3>
-              <p>AI-Powered Supply Chain Sourcing</p>
-            </div>
-            <div className="footer-links">
-              <a href="mailto:hello@supplyfinder.ai">Contact Us</a>
-              <a href="#privacy">Privacy Policy</a>
-              <a href="#terms">Terms of Service</a>
-            </div>
+// Footer Component
+const Footer = () => {
+  return (
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-content">
+          <div className="footer-brand">
+            <h3>SupplyFinder.AI</h3>
+            <p>AI-Powered Supply Chain Sourcing</p>
           </div>
-          <div className="footer-bottom">
-            <p>&copy; 2024 SupplyFinder.AI. All rights reserved.</p>
+          <div className="footer-links">
+            <a href="mailto:hello@supplyfinder.ai">Contact Us</a>
+            <a href="/faq">FAQ</a>
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
           </div>
         </div>
-      </footer>
-    </div>
+        <div className="footer-bottom">
+          <p>&copy; 2024 SupplyFinder.AI. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <div className="app">
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/faq" element={<FAQPage />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   )
 }
 
