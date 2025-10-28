@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#2563eb" stop-opacity="0.7"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#1e3a8a" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" stroke="#93c5fd" stroke-opacity="0.15"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="900" fill="#0b1220"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <circle cx="1200" cy="200" r="400" fill="url(#glow)"/>
+  <circle cx="300" cy="700" r="300" fill="url(#glow)"/>
+
+  <!-- Diagonal tech lines -->
+  <g stroke="url(#g1)" stroke-width="2" stroke-opacity="0.35">
+    <path d="M-100 700 L 400 -100"/>
+    <path d="M0 900 L 600 -100"/>
+    <path d="M200 900 L 800 -100"/>
+    <path d="M400 900 L 1000 -100"/>
+    <path d="M600 900 L 1200 -100"/>
+    <path d="M800 900 L 1400 -100"/>
+    <path d="M1000 900 L 1600 -100"/>
+    <path d="M1200 900 L 1800 -100"/>
+  </g>
+
+  <!-- Pulsing nodes -->
+  <g>
+    <circle cx="520" cy="420" r="3" fill="#93c5fd"/>
+    <circle cx="820" cy="260" r="3" fill="#93c5fd"/>
+    <circle cx="1080" cy="520" r="3" fill="#93c5fd"/>
+    <circle cx="360" cy="640" r="3" fill="#93c5fd"/>
+  </g>
+</svg>
