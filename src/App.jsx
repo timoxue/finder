@@ -1,5 +1,5 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom'
 import RequestForm from './components/RequestForm'
 import FAQPage from './components/FAQPage'
 import './styles/globals.css'
@@ -107,6 +107,24 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* FAQ Promotional Section */}
+      <section className="faq-promo">
+        <div className="container">
+          <div className="faq-promo-card">
+            <div className="faq-promo-content">
+              <h2 className="faq-promo-title">Have Questions? We Have Answers.</h2>
+              <p className="faq-promo-text">
+                Get detailed information on how our AI sourcing process works, data confidentiality,
+                delivery times, and more in our comprehensive FAQ section.
+              </p>
+            </div>
+            <div className="faq-promo-cta">
+              <Link to="/faq" className="faq-promo-button">Visit Our Help Center</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Request Form Section */}
       <section id="request-form" className="request-form-section">
         <div className="container">
@@ -147,9 +165,17 @@ const Footer = () => {
 }
 
 function App() {
+  const ScrollToTop = () => {
+    const { pathname } = useLocation()
+    useEffect(() => {
+      window.scrollTo({ top: 0, behavior: 'instant' })
+    }, [pathname])
+    return null
+  }
   return (
     <Router>
       <div className="app">
+        <ScrollToTop />
         <Navigation />
         <Routes>
           <Route path="/" element={<HomePage />} />
