@@ -180,6 +180,30 @@ function App() {
     }, [pathname])
     return null
   }
+
+  // Handle hash scrolling
+  useEffect(() => {
+    const handleHashScroll = () => {
+      if (window.location.hash) {
+        const element = document.getElementById(window.location.hash.substring(1))
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }, 100)
+        }
+      }
+    }
+
+    // Handle initial load with hash
+    handleHashScroll()
+
+    // Handle hash changes
+    window.addEventListener('hashchange', handleHashScroll)
+    
+    return () => {
+      window.removeEventListener('hashchange', handleHashScroll)
+    }
+  }, [])
   return (
     <Router>
       <div className="app">

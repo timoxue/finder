@@ -78,12 +78,26 @@ const RequestForm = () => {
         })
       })
 
-      const result = await response.json()
+      // Try to safely parse JSON if available
+      let result = null
+      let rawText = ''
+      const contentType = response.headers.get('content-type') || ''
+      const likelyJson = contentType.includes('application/json')
+      try {
+        if (likelyJson) {
+          result = await response.json()
+        } else {
+          rawText = await response.text()
+        }
+      } catch (_) {
+        // Ignore parse errors; we'll fall back to status handling
+      }
+
       if (response.ok) {
         setIsSubmitted(true)
         setFormData({ name: '', company: '', email: '', requestDetails: '', website: '', captchaAnswer: '' })
       } else {
-        const errorMessage = result.message || result.error || 'Failed to submit request'
+        const errorMessage = (result && (result.message || result.error)) || rawText || response.statusText || 'Failed to submit request'
         alert(`Error: ${errorMessage}`)
       }
     } catch (error) {

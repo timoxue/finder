@@ -148,43 +148,58 @@ const SampleReportPage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="report-cta">
-        <div className="report-container">
-          <p className="cta-intro">This sample report is based on a generic scenario. The true power of our AI system lies in delivering dynamic, real-time, in-depth analysis tailored to your <strong>specific project requirements</strong>.</p>
+      <section className="optimized-cta">
+        <div className="cta-container">
+          <h2 className="cta-main-title">Ready to Move from Generic Data to Your Strategic Advantage?</h2>
           
-          <div className="delivery-promise">
-            <h3>Provide your needs, and we will deliver:</h3>
-            <div className="delivery-list">
-              <div className="delivery-item">
-                <div className="delivery-number">1</div>
-                <div className="delivery-content">
-                  <h4>A confidential Strategic Sourcing Proposal</h4>
-                  <p>Based on your precise technical specs, budget, and timeline.</p>
-                </div>
+          <p className="cta-description">
+            This sample report is based on a generic scenario. While it demonstrates our methodology, the <strong>true, transformative power of our AI</strong> is unlocked when it's focused exclusively on your unique project challenges and opportunities.
+          </p>
+          
+          <p className="cta-subtitle">
+            <strong>Provide your specific requirements to get started with your foundational strategy, and discover how our premium services can further de-risk your supply chain:</strong>
+          </p>
+
+          <div className="cta-content-grid">
+
+            <div className="value-points-grid">
+              <div className="value-point-card core-service">
+                <div className="value-point-icon">🤖</div>
+                <h4>Your AI-Powered Sourcing Proposal & Roadmap (Core Service)</h4>
+                <p><em>Stop the guesswork. Get a clear, ranked list of 3-5 pre-vetted suppliers, a data-backed negotiation range, and a step-by-step plan to approach them effectively.</em></p>
               </div>
-              <div className="delivery-item">
-                <div className="delivery-number">2</div>
-                <div className="delivery-content">
-                  <h4>A deep-dive session with our supply chain expert</h4>
-                  <p>To help you interpret the risks and opportunities in your report.</p>
-                </div>
+
+              <div className="value-point-card optional-service">
+                <div className="value-point-icon">💡</div>
+                <h4>1-on-1 Deep-Dive Strategy Session</h4>
+                <p>Get deal-ready. We'll dissect your report together, simulate negotiation scenarios, and identify the key concessions to ask for, ensuring you walk into conversations with confidence and a winning strategy.</p>
               </div>
-              <div className="delivery-item">
-                <div className="delivery-number">3</div>
-                <div className="delivery-content">
-                  <h4>An actionable procurement roadmap</h4>
-                  <p>So you know exactly what to do next.</p>
-                </div>
+
+              <div className="value-point-card optional-service">
+                <div className="value-point-icon">📊</div>
+                <h4>Proactive Delivery Assurance</h4>
+                <p>Lock in your timeline. By monitoring your order's production data, we help you identify bottlenecks early and collaborate with the supplier on solutions before a delay becomes a crisis.</p>
+              </div>
+
+              <div className="value-point-card optional-service">
+                <div className="value-point-icon">🛡️</div>
+                <h4>End-to-End Supplier Management</h4>
+                <p>Hand off the complexity. We manage the entire supplier relationship on your behalf, from initial technical clarifications to final inspection, so you can focus on your core business.</p>
               </div>
             </div>
           </div>
 
-          <div className="cta-section">
-            <h3>Get Your Customized AI Analysis Report Now</h3>
-            <p className="cta-subtitle">(We promise it's more powerful than you imagine)</p>
-            <Link to="/" className="cta-button">
-              Submit Your Requirements
-            </Link>
+          <div className="final-cta">
+            <button 
+              className="cta-button-primary"
+              onClick={() => {
+                // 跳转到首页并滚动到表单
+                window.location.href = '/#request-form'
+              }}
+            >
+              Get Your Customized AI Analysis Report Now
+            </button>
+            <p className="cta-guarantee">We promise it's more powerful than you imagine</p>
           </div>
         </div>
       </section>
