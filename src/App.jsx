@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react
 import { Analytics } from '@vercel/analytics/react'
 import RequestForm from './components/RequestForm'
 import FAQPage from './components/FAQPage'
+import SampleReportPage from './components/SampleReportPage'
 import './styles/globals.css'
 
 // Navigation Component
@@ -54,9 +55,14 @@ const HomePage = () => {
             Transform your complex global supply chain sourcing from weeks to minutes. 
             Our AI-driven platform connects energy storage integrators with verified suppliers worldwide.
           </p>
-          <button className="cta-button" onClick={() => document.getElementById('request-form').scrollIntoView({ behavior: 'smooth' })}>
-            Submit Your Requirements
-          </button>
+          <div className="hero-cta-group">
+            <button className="cta-button secondary" onClick={() => window.location.href = '/sample-report'}>
+              See a Sample Report
+            </button>
+            <button className="cta-button primary" onClick={() => document.getElementById('request-form').scrollIntoView({ behavior: 'smooth' })}>
+              Submit Your Requirements
+            </button>
+          </div>
         </div>
       </section>
 
@@ -129,9 +135,9 @@ const HomePage = () => {
       {/* Request Form Section */}
       <section id="request-form" className="request-form-section">
         <div className="container">
-          <h2 className="section-title">Get Started Today</h2>
+          <h2 className="section-title">Get Your Free Sourcing Analysis</h2>
           <p className="section-subtitle">
-            Submit your sourcing requirements and let our AI find the perfect suppliers for you
+            No obligation. Receive a customized supplier shortlist report within 24 hours.
           </p>
           <RequestForm />
         </div>
@@ -158,6 +164,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-bottom">
+          <p className="social-proof">Trusted by early-adopter integrators across Europe and North America.</p>
           <p>&copy; 2024 SupplyFinder.AI. All rights reserved.</p>
         </div>
       </div>
@@ -181,6 +188,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/faq" element={<FAQPage />} />
+          <Route path="/sample-report" element={<SampleReportPage />} />
         </Routes>
         <Footer />
         <Analytics />

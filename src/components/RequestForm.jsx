@@ -205,7 +205,7 @@ const RequestForm = () => {
           className="submit-button"
           disabled={isSubmitting}
         >
-          {isSubmitting ? 'Analyzing Requirements...' : 'Submit Requirements'}
+          {isSubmitting ? 'Generating Your Free Report...' : 'Generate Your Free Report'}
         </button>
       </form>
     </div>
