@@ -62,6 +62,15 @@ const Dashboard = () => {
     loadIntel()
   }, [])
 
+  // Mark that user has visited the dashboard to enable contextual nav
+  useEffect(() => {
+    try {
+      localStorage.setItem('hasVisitedDashboard', 'true')
+    } catch (_) {
+      // ignore
+    }
+  }, [])
+
   const projects = [
     { name: 'German C&I Project', date: '2024-01-15', suppliers: ['Supplier A', 'Supplier B', 'Supplier C'], status: 'Monitoring' },
   ]
@@ -105,9 +114,42 @@ const Dashboard = () => {
                 </div>
               ))}
             </div>
+            {/* Intelligence footer (hidden) */}
+            {false && (
+              <div className="intelligence-footer" style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 12 }}>
+                <small className="text-muted">
+                  Data sources: SMM, BloombergNEF, and other public market data. Last updated: {new Date().toLocaleDateString()}
+                </small>
+              </div>
+            )}
           </>
         )}
       </SectionCard>
+
+      {/* Suggested Next Steps (hidden) */}
+      {false && (
+        <SectionCard title="Suggested Next Steps">
+          <div className="pain-points-grid">
+            <div className="pain-point" style={{ textAlign: 'left', background: 'rgba(15, 23, 42, 0.02)' }}>
+              <h3 style={{ marginBottom: 12 }}>Make the most of SupplyFinder</h3>
+              <ul className="tips-list" style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: 8 }}>
+                <li>
+                  <span aria-hidden="true">📊 </span>
+                  <strong>Save your insights:</strong> Bookmark this report for future reference
+                </li>
+                <li>
+                  <span aria-hidden="true">🔔 </span>
+                  <strong>Monitor changes:</strong> Add suppliers to your watchlist for real-time alerts
+                </li>
+                <li>
+                  <span aria-hidden="true">💬 </span>
+                  <strong>Get expert help:</strong> <Link to="/consultation" className="tip-link">Schedule a strategy session</Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </SectionCard>
+      )}
 
       {/* Your Projects */}
       <SectionCard title="Your Projects" action={<a className="btn btn-secondary" href="#">New Project</a>}>

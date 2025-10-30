@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
+  const [hasVisitedDashboard, setHasVisitedDashboard] = useState(false)
+
+  useEffect(() => {
+    const visited = localStorage.getItem('hasVisitedDashboard')
+    setHasVisitedDashboard(!!visited)
+  }, [])
+
   return (
     <nav className="navbar">
       <div className="nav-container">
         <div className="nav-brand">
-          <a href="/" className="brand" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Link to="/" className="brand" style={{ textDecoration: 'none', color: 'inherit' }}>
             <svg className="brand-icon" width="40" height="40" viewBox="0 0 64 64" fill="none" aria-hidden="true">
               <defs>
                 <linearGradient id="g1" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
@@ -22,12 +30,14 @@ const Header = () => {
               <circle cx="32" cy="32" r="26" stroke="url(#g1)" strokeWidth="2" opacity="0.3"/>
             </svg>
             <h2 className="brand-text">SupplyFinder.AI</h2>
-          </a>
+          </Link>
         </div>
         <div className="nav-links">
-          <a href="/">Home</a>
-          <a href="/dashboard">Dashboard</a>
-          <a href="/faq">FAQ</a>
+          <Link to="/">Home</Link>
+          {hasVisitedDashboard && (
+            <Link to="/dashboard">My Workspace</Link>
+          )}
+          <Link to="/faq">FAQ</Link>
         </div>
       </div>
     </nav>

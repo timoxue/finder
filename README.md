@@ -43,6 +43,18 @@ Security & Anti‑Spam
 - `RATE_LIMIT_SECRET` – enable stateless per-client cooldown via signed cookie (recommended)
 - Built-in measures: server-side validation, honeypot field, simple math CAPTCHA, short rate-limit window
 
+Market Intelligence (optional, enables real-time data)
+- `INTEL_TTL_MINUTES` – cache TTL in minutes (default: 15)
+- Lithium price providers (choose any available):
+  - `SMM_API_KEY` – SMM (Shanghai Metals Market)
+  - `FASTM_API_KEY` – Fastmarkets
+  - `CME_LI_API_URL` – Custom JSON endpoint returning `{ pricePerTon, trend, change }`
+- EU port congestion providers (choose 1):
+  - `MARINETRAFFIC_API_KEY` and `MARINETRAFFIC_API_URL` – MarineTraffic API base/query URL
+  - `PORT_CONGESTION_API_URL` – Custom JSON endpoint returning `{ value, trend, change }`
+- Policy alert (optional):
+  - `POLICY_ALERT_API_URL` – Custom JSON endpoint returning `{ value, trend, change }`
+
 ## Deployment (Vercel)
 - Push to GitHub, import repo to Vercel
 - Add env vars above
@@ -53,7 +65,8 @@ Security & Anti‑Spam
 ```
 .
 ├─ api/
-│  └─ submit-request.js        # Serverless: handles form submit + SMTP/SendGrid
+│  ├─ submit-request.js        # Serverless: handles form submit + SMTP/SendGrid
+│  └─ market-intelligence.js   # Serverless: aggregates real-time market signals with caching
 ├─ public/
 │  ├─ hero-bg.svg              # Techy hero background
 │  └─ favicon.svg              # Favicon
