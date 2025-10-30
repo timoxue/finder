@@ -161,7 +161,7 @@ const SampleReportPage = () => {
             The content above demonstrates our analysis format and the type of insights you can expect. To generate a <strong>project-specific</strong> report, start a real project with your requirements.
           </p>
           
-          <div className="final-cta">
+          <div className="final-cta" style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', justifyContent: 'center', marginTop: 12 }}>
             <Link className="btn btn-primary" to="/">Submit your real requirements</Link>
             <Link className="btn btn-secondary" to="/dashboard">Back to Dashboard</Link>
           </div>
