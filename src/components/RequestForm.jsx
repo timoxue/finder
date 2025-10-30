@@ -1,6 +1,8 @@
 import React, { useState, useMemo } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const RequestForm = () => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -48,7 +50,6 @@ const RequestForm = () => {
       newErrors.requestDetails = 'Please provide more detailed requirements (at least 20 characters)'
     }
 
-    // Captcha check on client for fast feedback
     if (String(Number(formData.captchaAnswer)) !== String(captchaA + captchaB)) {
       newErrors.captchaAnswer = 'Captcha answer is incorrect'
     }
@@ -78,26 +79,13 @@ const RequestForm = () => {
         })
       })
 
-      // Try to safely parse JSON if available
-      let result = null
-      let rawText = ''
-      const contentType = response.headers.get('content-type') || ''
-      const likelyJson = contentType.includes('application/json')
-      try {
-        if (likelyJson) {
-          result = await response.json()
-        } else {
-          rawText = await response.text()
-        }
-      } catch (_) {
-        // Ignore parse errors; we'll fall back to status handling
-      }
-
+      const result = await response.json()
       if (response.ok) {
         setIsSubmitted(true)
         setFormData({ name: '', company: '', email: '', requestDetails: '', website: '', captchaAnswer: '' })
+        navigate('/dashboard')
       } else {
-        const errorMessage = (result && (result.message || result.error)) || rawText || response.statusText || 'Failed to submit request'
+        const errorMessage = result.message || result.error || 'Failed to submit request'
         alert(`Error: ${errorMessage}`)
       }
     } catch (error) {
@@ -197,7 +185,6 @@ const RequestForm = () => {
           {errors.requestDetails && <span className="error-message">{errors.requestDetails}</span>}
         </div>
 
-        {/* Simple math captcha */}
         <div className="form-group">
           <label htmlFor="captchaAnswer">Anti-spam Check: {captchaA} + {captchaB} = ? *</label>
           <input
@@ -219,7 +206,7 @@ const RequestForm = () => {
           className="submit-button"
           disabled={isSubmitting}
         >
-          {isSubmitting ? 'Generating Your Free Report...' : 'Generate Your Free Report'}
+          {isSubmitting ? 'Analyzing Requirements...' : 'Submit Requirements'}
         </button>
       </form>
     </div>

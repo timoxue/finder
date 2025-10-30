@@ -4,67 +4,17 @@ import { Analytics } from '@vercel/analytics/react'
 import RequestForm from './components/RequestForm'
 import FAQPage from './components/FAQPage'
 import SampleReportPage from './components/SampleReportPage'
+import Hero from './components/Hero'
+import Dashboard from './components/Dashboard'
+import Header from './components/Header'
 import './styles/globals.css'
-
-// Navigation Component
-const Navigation = () => {
-  return (
-    <nav className="navbar">
-      <div className="nav-container">
-        <div className="nav-brand">
-          <a href="/" className="brand" style={{ textDecoration: 'none', color: 'inherit' }}>
-            <svg className="brand-icon" width="40" height="40" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-              <defs>
-                <linearGradient id="g1" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stopColor="#22d3ee"/>
-                  <stop offset="100%" stopColor="#2563eb"/>
-                </linearGradient>
-                <linearGradient id="g2" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stopColor="#fbbf24"/>
-                  <stop offset="100%" stopColor="#f59e0b"/>
-                </linearGradient>
-              </defs>
-              {/* Energy lightning bolt */}
-              <path d="M32 8 L20 32 L28 32 L24 56 L44 32 L36 32 L40 8 Z" fill="url(#g1)" opacity="0.9"/>
-              <path d="M32 12 L24 28 L28 28 L26 48 L40 28 L36 28 L38 12 Z" fill="url(#g2)" opacity="0.7"/>
-              <circle cx="32" cy="32" r="26" stroke="url(#g1)" strokeWidth="2" opacity="0.3"/>
-            </svg>
-            <h2 className="brand-text">SupplyFinder.AI</h2>
-          </a>
-        </div>
-        <div className="nav-links">
-          <a href="/">Home</a>
-          <a href="/faq">FAQ</a>
-        </div>
-      </div>
-    </nav>
-  )
-}
 
 // Home Page Component
 const HomePage = () => {
   return (
     <>
       {/* Hero Section */}
-      <section id="home" className="hero">
-        <div className="hero-container">
-          <h1 className="hero-title">
-            AI-Powered Sourcing for Energy Storage
-          </h1>
-          <p className="hero-subtitle">
-            Transform your complex global supply chain sourcing from weeks to minutes. 
-            Our AI-driven platform connects energy storage integrators with verified suppliers worldwide.
-          </p>
-          <div className="hero-cta-group">
-            <button className="cta-button secondary" onClick={() => window.location.href = '/sample-report'}>
-              See a Sample Report
-            </button>
-            <button className="cta-button primary" onClick={() => document.getElementById('request-form').scrollIntoView({ behavior: 'smooth' })}>
-              Submit Your Requirements
-            </button>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       {/* Pain Points Section */}
       <section className="pain-points">
@@ -137,7 +87,7 @@ const HomePage = () => {
         <div className="container">
           <h2 className="section-title">Get Your Free Sourcing Analysis</h2>
           <p className="section-subtitle">
-            No obligation. Receive a customized supplier shortlist report within 24 hours.
+            No obligation. Receive a customized supplier shortlist report within 24 hours. After submit, you'll be redirected to a demo dashboard preview.
           </p>
           <RequestForm />
         </div>
@@ -208,11 +158,12 @@ function App() {
     <Router>
       <div className="app">
         <ScrollToTop />
-        <Navigation />
+        <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/sample-report" element={<SampleReportPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <Footer />
         <Analytics />

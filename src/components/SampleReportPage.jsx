@@ -10,6 +10,11 @@ const SampleReportPage = () => {
 
   return (
     <div className="sample-report-page">
+      {/* Lightweight Header */}
+      <div className="container" style={{ paddingTop: 20, paddingBottom: 10 }}>
+        <Link to="/dashboard" className="btn btn-secondary">← Back to Your Dashboard</Link>
+      </div>
+
       {/* Report Cover Page */}
       <section className="report-cover">
         <div className="report-container">
@@ -150,56 +155,15 @@ const SampleReportPage = () => {
       {/* Call to Action */}
       <section className="optimized-cta">
         <div className="cta-container">
-          <h2 className="cta-main-title">Ready to Move from Generic Data to Your Strategic Advantage?</h2>
+          <h2 className="cta-main-title">This is a demo report inside the platform</h2>
           
           <p className="cta-description">
-            This sample report is based on a generic scenario. While it demonstrates our methodology, the <strong>true, transformative power of our AI</strong> is unlocked when it's focused exclusively on your unique project challenges and opportunities.
+            The content above demonstrates our analysis format and the type of insights you can expect. To generate a <strong>project-specific</strong> report, start a real project with your requirements.
           </p>
           
-          <p className="cta-subtitle">
-            <strong>Provide your specific requirements to get started with your foundational strategy, and discover how our premium services can further de-risk your supply chain:</strong>
-          </p>
-
-          <div className="cta-content-grid">
-
-            <div className="value-points-grid">
-              <div className="value-point-card core-service">
-                <div className="value-point-icon">🤖</div>
-                <h4>Your AI-Powered Sourcing Proposal & Roadmap (Core Service)</h4>
-                <p><em>Stop the guesswork. Get a clear, ranked list of 3-5 pre-vetted suppliers, a data-backed negotiation range, and a step-by-step plan to approach them effectively.</em></p>
-              </div>
-
-              <div className="value-point-card optional-service">
-                <div className="value-point-icon">💡</div>
-                <h4>1-on-1 Deep-Dive Strategy Session</h4>
-                <p>Get deal-ready. We'll dissect your report together, simulate negotiation scenarios, and identify the key concessions to ask for, ensuring you walk into conversations with confidence and a winning strategy.</p>
-              </div>
-
-              <div className="value-point-card optional-service">
-                <div className="value-point-icon">📊</div>
-                <h4>Proactive Delivery Assurance</h4>
-                <p>Lock in your timeline. By monitoring your order's production data, we help you identify bottlenecks early and collaborate with the supplier on solutions before a delay becomes a crisis.</p>
-              </div>
-
-              <div className="value-point-card optional-service">
-                <div className="value-point-icon">🛡️</div>
-                <h4>End-to-End Supplier Management</h4>
-                <p>Hand off the complexity. We manage the entire supplier relationship on your behalf, from initial technical clarifications to final inspection, so you can focus on your core business.</p>
-              </div>
-            </div>
-          </div>
-
           <div className="final-cta">
-            <button 
-              className="cta-button-primary"
-              onClick={() => {
-                // 跳转到首页并滚动到表单
-                window.location.href = '/#request-form'
-              }}
-            >
-              Get Your Customized AI Analysis Report Now
-            </button>
-            <p className="cta-guarantee">We promise it's more powerful than you imagine</p>
+            <Link className="btn btn-primary" to="/">Submit your real requirements</Link>
+            <Link className="btn btn-secondary" to="/dashboard">Back to Dashboard</Link>
           </div>
         </div>
       </section>
