@@ -160,6 +160,39 @@ const SampleReportPage = () => {
           <p className="cta-description">
             The content above demonstrates our analysis format and the type of insights you can expect. To generate a <strong>project-specific</strong> report, start a real project with your requirements.
           </p>
+
+          <p className="cta-subtitle" style={{ marginTop: 10 }}>
+            By submitting your real requirements, you can also access the following value-adds as needed:
+          </p>
+
+          {/* Restored value points module */}
+          <div className="cta-content-grid">
+            <div className="value-points-grid">
+              <div className="value-point-card core-service">
+                <div className="value-point-icon">🤖</div>
+                <h4>Your AI-Powered Sourcing Proposal & Roadmap (Core Service)</h4>
+                <p><em>Stop the guesswork. Get a clear, ranked list of 3-5 pre-vetted suppliers, a data-backed negotiation range, and a step-by-step plan to approach them effectively.</em></p>
+              </div>
+
+              <div className="value-point-card optional-service">
+                <div className="value-point-icon">💡</div>
+                <h4>1-on-1 Deep-Dive Strategy Session</h4>
+                <p>Get deal-ready. We'll dissect your report together, simulate negotiation scenarios, and identify the key concessions to ask for, ensuring you walk into conversations with confidence and a winning strategy.</p>
+              </div>
+
+              <div className="value-point-card optional-service">
+                <div className="value-point-icon">📊</div>
+                <h4>Proactive Delivery Assurance</h4>
+                <p>Lock in your timeline. By monitoring your order's production data, we help you identify bottlenecks early and collaborate with the supplier on solutions before a delay becomes a crisis.</p>
+              </div>
+
+              <div className="value-point-card optional-service">
+                <div className="value-point-icon">🛡️</div>
+                <h4>End-to-End Supplier Management</h4>
+                <p>Hand off the complexity. We manage the entire supplier relationship on your behalf, from initial technical clarifications to final inspection, so you can focus on your core business.</p>
+              </div>
+            </div>
+          </div>
           
           <div className="final-cta" style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', justifyContent: 'center', marginTop: 12 }}>
             <Link className="btn btn-primary" to="/">Submit your real requirements</Link>
